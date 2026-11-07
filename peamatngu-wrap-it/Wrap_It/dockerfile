@@ -1,0 +1,8 @@
+FROM php:8.2-apache
+
+COPY src/ /var/www/html/
+COPY Uploads/ /var/www/uploads/
+
+RUN chown -R www-data:www-data /var/www/uploads
+RUN echo "display_errors=Off" > /usr/local/etc/php/conf.d/hide-errors.ini
+EXPOSE 80
